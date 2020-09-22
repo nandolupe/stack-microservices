@@ -1,10 +1,9 @@
 package com.example.beneficiario.controller;
 
+import java.util.Date;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,13 +17,15 @@ public class BeneficiarioController {
 	
 	private BeneficiarioRepository beneficiarioRepository;
 	
-	/*
-	 * @RequestMapping(value = "/buscar", method = RequestMethod.GET, produces =
-	 * "application/json") public Beneficiario buscarBeneficiario() { Beneficiario
-	 * beneficiario = new Beneficiario();
-	 * 
-	 * return beneficiario; }
-	 */
+	
+	 @RequestMapping(value = "/buscar", method = RequestMethod.GET, produces = "application/json") 
+	 
+	 public Beneficiario buscarBeneficiario() { Beneficiario
+		 beneficiario = new Beneficiario("Luiz Fernando Pereira", new Date(), "M");
+		 
+		 return beneficiario; 
+	 }
+
 	
 	@RequestMapping(value = "/todos", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Stream<Beneficiario>>  buscarTodosBeneficiarios() {
