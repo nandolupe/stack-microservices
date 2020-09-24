@@ -1,0 +1,27 @@
+#
+#
+version: '3.5'
+
+networks:
+    integration:
+
+services:
+  eureka-server:
+    image: nandolup/eureka-server:latest
+    container_name: eureka-server
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - integration
+
+  zuul-server:
+    image: nandolup/zuul-server:latest
+    container_name: zuul-server
+    restart: always
+    ports:
+      - "8762:8762"
+    depends_on:
+      - eureka-server
+    networks:
+      - integration

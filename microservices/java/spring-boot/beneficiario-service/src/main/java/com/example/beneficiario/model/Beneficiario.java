@@ -30,11 +30,14 @@ public class Beneficiario {
 	
 	private String sexo;
 	
-	public Beneficiario(String nomeBeneficiario, Date dataNascimento, String sexo) {
+	private String mensagem;
+	
+	public Beneficiario(String nomeBeneficiario, Date dataNascimento, String sexo, String mensagem) {
 		super();
 		this.nomeBeneficiario = nomeBeneficiario;
 		this.dataNascimento = dataNascimento;
 		this.sexo = sexo;
+		this.mensagem = mensagem;
 	}
 
 	public Optional<Long> getId() {
