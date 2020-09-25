@@ -1,3 +1,9 @@
+server: 
+  port: 8089
+
+  servlet:
+    context-path: /beneficiario
+
 spring: 
   application: 
     name: beneficiario-service
@@ -6,5 +12,14 @@ spring:
         
   cloud: 
     config: 
-      uri: http://config-server:8888/config-server
-      
+      uri: http://config-server:8890/config-server
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
