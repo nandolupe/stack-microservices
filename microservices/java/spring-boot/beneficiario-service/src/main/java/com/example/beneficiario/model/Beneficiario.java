@@ -1,24 +1,14 @@
 package com.example.beneficiario.model;
 
 import java.util.Date;
-import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
 @Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Table(name = "beneficiario")
 public class Beneficiario {
 	
 	@Id @GeneratedValue 
@@ -32,6 +22,25 @@ public class Beneficiario {
 	
 	private String mensagem;
 	
+	public Beneficiario() {}
+	
+	public Beneficiario(Beneficiario beneficiario) {
+		super();
+		this.nomeBeneficiario = beneficiario.getNomeBeneficiario();
+		this.dataNascimento = beneficiario.getDataNascimento();
+		this.sexo = beneficiario.getSexo();
+		this.mensagem = beneficiario.getMensagem();
+	}
+	
+	public Beneficiario(Beneficiario beneficiario, Long id) {
+		super();
+		this.id = id;
+		this.nomeBeneficiario = beneficiario.getNomeBeneficiario();
+		this.dataNascimento = beneficiario.getDataNascimento();
+		this.sexo = beneficiario.getSexo();
+		this.mensagem = beneficiario.getMensagem();
+	}
+	
 	public Beneficiario(String nomeBeneficiario, Date dataNascimento, String sexo, String mensagem) {
 		super();
 		this.nomeBeneficiario = nomeBeneficiario;
@@ -40,8 +49,44 @@ public class Beneficiario {
 		this.mensagem = mensagem;
 	}
 
-	public Optional<Long> getId() {
-		return Optional.ofNullable(this.id);
+	public Long getId() {
+		return id;
 	}
 
+	public String getNomeBeneficiario() {
+		return nomeBeneficiario;
+	}
+
+	public void setNomeBeneficiario(String nomeBeneficiario) {
+		this.nomeBeneficiario = nomeBeneficiario;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }
