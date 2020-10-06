@@ -6,22 +6,72 @@ networks:
     integration:
 
 services:
+  config-server:
+    image: nandolup/config-server:latest
+    container_name: config-server
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+    hostname: config-server
+    restart: always
+    ports:
+      - "8888:8888"
+    environment:
+     - JAVA_OPTS=-Xmx128m -Xms128m
+     - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - integration
+
   eureka-server:
     image: nandolup/eureka-server:latest
     container_name: eureka-server
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+    hostname: eureka-server
     restart: always
     ports:
       - "8761:8761"
+    environment:
+     - JAVA_OPTS=-Xmx128m -Xms128m
+     - SPRING_PROFILES_ACTIVE=prd
     networks:
       - integration
 
   zuul-server:
     image: nandolup/zuul-server:latest
     container_name: zuul-server
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+    hostname: zuul-server
     restart: always
     ports:
       - "8762:8762"
+    environment:
+     - JAVA_OPTS=-Xmx128m -Xms128m
+     - SPRING_PROFILES_ACTIVE=dev
     depends_on:
       - eureka-server
+    networks:
+      - integration
+
+  monitor-server:
+    image: nandolup/monitor-server:latest
+    container_name: monitor-server
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+    hostname: monitor-server
+    restart: always
+    ports:
+      - "8060:8060"
+    environment:
+     - JAVA_OPTS=-Xmx128m -Xms128m
+     - SPRING_PROFILES_ACTIVE=dev
     networks:
       - integration

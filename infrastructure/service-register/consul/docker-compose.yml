@@ -1,0 +1,39 @@
+#
+#
+version: '3.5'
+
+networks:
+    integration:
+
+services:
+  consul:
+    image: consul:1.7
+    container_name: consul
+    hostname: consul
+    restart: always
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+    environment:
+     - client=0.0.0.0
+     - bind=0.0.0.0
+     - dev 
+     - ui
+    networks:
+      - integration
+
+  fabiolb:
+    image: fabiolb/fabio
+    container_name: fabiolb
+    hostname: fabiolb
+    restart: always
+    ports:
+      - "9999:9999"
+      - "9998:9998"
+    environment:
+     - consul://0.0.0.0:8500
+    volumes:
+     - '/home/luiz/volumes/fabiolb/fabio.properties:/etc/fabio/fabio.properties'
+    networks:
+      - integration
+
