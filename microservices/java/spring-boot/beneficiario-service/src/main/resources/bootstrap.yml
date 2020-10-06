@@ -5,21 +5,7 @@ server:
 spring: 
   application: 
     name: beneficiario-service
-        
-  cloud: 
-    config: 
-      uri: http://config-server:8890/config-server
-    bus:
-      enabled: true
-      refresh:
-        enabled: true
 
-  rabbitmq:
-    host: message-queue
-    port: 5672
-    username: guest
-    password: guest
-    
   kong:
     enabled: false
     url: http://kong:8001
