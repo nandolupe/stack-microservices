@@ -1,0 +1,26 @@
+server: 
+  port: 8089
+
+spring: 
+  application: 
+    name: beneficiario-service
+        
+  cloud: 
+    config: 
+      uri: http://config-server:8890/config-server
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+
+  rabbitmq:
+    host: message-queue
+    port: 5672
+    username: guest
+    password: guest
+
+  data: 
+    mongodb:  
+      database: chm-db
+      port: 32770
+      host: 0.0.0.0
