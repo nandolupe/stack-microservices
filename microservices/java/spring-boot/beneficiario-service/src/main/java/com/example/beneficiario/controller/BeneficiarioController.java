@@ -17,7 +17,7 @@ import com.example.beneficiario.model.Beneficiario;
 import com.example.beneficiario.repository.BeneficiarioRepository;
 
 @RestController
-@RequestMapping(value = "/beneficiario", produces = "application/hal+json")
+@RequestMapping(value = "/beneficiario", produces = "application/json")
 public class BeneficiarioController {
 
 	final BeneficiarioRepository beneficiarioRepository;

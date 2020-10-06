@@ -1,5 +1,6 @@
 server: 
   port: 8089
+  address: beneficiario-service
 
 spring: 
   application: 
@@ -18,3 +19,22 @@ spring:
     port: 5672
     username: guest
     password: guest
+    
+  kong:
+    enabled: false
+    url: http://kong:8001
+
+management:
+  metrics:
+    export:
+      newrelic:
+        enabled: false
+      
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
+  endpoint:
+    health:
+      show-details: always
