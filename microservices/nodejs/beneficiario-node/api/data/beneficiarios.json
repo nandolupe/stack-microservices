@@ -1,0 +1,16 @@
+{
+  "beneficiarios": {
+    "data": [
+      {
+        "id": "5da9ea674234635bdff45c02",
+        "nome": "Luiz Fernando Pereira",
+        "parentId": "5da9ea6732123433432",
+        "dataNascimento": "1966-10-23T03:00:00Z",
+        "email": "email@email.com.br",
+        "sexo": "M",
+        "estado": "SP",
+        "createdAt": "2019-10-18T16:37:58.979Z"
+      }
+    ]
+  }
+}
