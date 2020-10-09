@@ -1,0 +1,2 @@
+server="mongodb://localhost:32768/"
+database="golang-db"  
