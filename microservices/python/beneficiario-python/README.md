@@ -36,6 +36,12 @@ create collection on mongodb -> beneficiario
 
 Data to persistence
 
+##### ENDPOINT
+
+```shell
+    http://localhost:5001/beneficiario
+```
+
 ##### FINDALL (GET)
 
 ```shell

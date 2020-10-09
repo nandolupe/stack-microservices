@@ -4,18 +4,13 @@ server:
 spring: 
   application: 
     name: chm-api
+  data:
+    mongodb:
+      host: mongo-db
+      port: 32774
+      username: sa
+      database: chm-db
         
-management:
-  metrics:
-    export:
-      newrelic:
-        enabled: false
-      
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-        
-  endpoint:
-    health:
-      show-details: always
+  cloud: 
+    config: 
+      uri: http://config-server:8888/config-server

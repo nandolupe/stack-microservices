@@ -1,26 +1,10 @@
 server: 
   port: 8089
-  address: beneficiario-service
 
 spring: 
   application: 
     name: beneficiario-service
-
-  kong:
-    enabled: false
-    url: http://kong:8001
-
-management:
-  metrics:
-    export:
-      newrelic:
-        enabled: false
-      
-  endpoints:
-    web:
-      exposure:
-        include: '*'
         
-  endpoint:
-    health:
-      show-details: always
+  cloud: 
+    config: 
+      uri: http://config-server:8888/config-server
