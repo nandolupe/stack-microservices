@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: stack-service
+spec:
+  selector:
+    app: eureka-server
+  ports:
+    - protocol: "TCP"
+      port: 8761
+      targetPort: 8761
+      nodePort: 30761
+  type: LoadBalancer
+  externalIPs:
+  - 192.168.0.10
