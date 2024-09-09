@@ -1,0 +1,25 @@
+package rules
+
+import com.example.model.Product
+
+rule "Offer for Silver"
+	when 
+		productObject: Product(value < 200)
+	then
+		productObject.setType("Silver");
+		productObject.setDiscount(15);
+	end
+rule "Offer for Gold"
+	when 
+		productObject: Product(value >= 200 && value <= 400)
+	then
+		productObject.setType("Gold");
+		productObject.setDiscount(20);
+	end	
+rule "Offer for Diamond"
+	when 
+		productObject: Product(value >= 400)
+	then
+		productObject.setType("Diamond");
+		productObject.setDiscount(25);
+	end
